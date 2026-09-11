@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="pirate game"
+config/name="test game"
 run/main_scene="uid://tjia6umni4i0"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"

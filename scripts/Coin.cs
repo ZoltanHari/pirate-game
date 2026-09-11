@@ -11,9 +11,8 @@ public partial class Coin : Area2D
 
     private void OnBodyEntered(Node2D body)
     {
-        if (body is CharacterBody2D player)
         {
-            Print($"Player has picked up {Name}");
+            Print("+1 Coin");
             QueueFree();
         }
     }
