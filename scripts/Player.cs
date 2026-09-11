@@ -33,13 +33,21 @@ public override void _Ready()
 		// Get the input direction and handle the movement/deceleration.
 		var direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
 
-		if (direction == Vector2.Zero)
+		if (IsOnFloor()) 
 		{
-			AnimatedSprite.Play("idle");
+			if (direction == Vector2.Zero)
+			{
+				AnimatedSprite.Play("idle");
+			}
+			else
+			{
+				AnimatedSprite.Play("run");
+			}
 		}
+
 		else
 		{
-			AnimatedSprite.Play("run");
+			AnimatedSprite.Play("jump");
 		}
 
 		if (direction != Vector2.Zero)
