@@ -6,6 +6,14 @@ public partial class Player : CharacterBody2D
 	public const float Speed = 130.0f;
 	public const float JumpVelocity = -300.0f;
 
+	private AnimatedSprite2D AnimatedSprite2D;
+
+public override void _Ready()
+    {
+        AnimatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+    }
+
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -28,6 +36,7 @@ public partial class Player : CharacterBody2D
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
+			AnimatedSprite2D.FlipH = direction.X < 0;
 		}
 		else
 		{
@@ -36,5 +45,6 @@ public partial class Player : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
+
 	}
 }
