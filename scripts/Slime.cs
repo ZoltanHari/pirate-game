@@ -20,16 +20,16 @@ public partial class Slime : Node2D
 
     public override void _PhysicsProcess(double delta)
     {
-        AnimatedSprite2D.FlipH = direction < 0;
 
         if (direction == 1 && RayCastRight.IsColliding())
         {
             direction = -1; 
+            AnimatedSprite2D.FlipH = true;
         }
         else if (direction == -1 && RayCastLeft.IsColliding())
         {
             direction = 1;
-              
+            AnimatedSprite2D.FlipH = false;
         }   
 
         Position += new Vector2(direction * Speed * (float)delta, 0);
