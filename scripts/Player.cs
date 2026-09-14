@@ -6,11 +6,11 @@ public partial class Player : CharacterBody2D
 	public const float Speed = 130.0f;
 	public const float JumpVelocity = -300.0f;
 
-	private AnimatedSprite2D AnimatedSprite;
+	private AnimatedSprite2D _animatedSprite;
 
 public override void _Ready()
     {
-        AnimatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
 
 
@@ -37,23 +37,23 @@ public override void _Ready()
 		{
 			if (direction == Vector2.Zero)
 			{
-				AnimatedSprite.Play("idle");
+				_animatedSprite.Play("idle");
 			}
 			else
 			{
-				AnimatedSprite.Play("run");
+				_animatedSprite.Play("run");
 			}
 		}
 
 		else
 		{
-			AnimatedSprite.Play("jump");
+			_animatedSprite.Play("jump");
 		}
 
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
-			AnimatedSprite.FlipH = direction.X < 0;
+			_animatedSprite.FlipH = direction.X < 0;
 		}
 		else
 		{
